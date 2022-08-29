@@ -24,7 +24,7 @@
             h1 {
                 display: flex;
                 align-items: center;
-                color: #008080;
+                color: #592693;
                 flex: 1;
                 margin: 0;
             }
@@ -57,12 +57,37 @@
                 padding: 15px;
             }
             #interests {
-                border: 4px #008080 ridge;
+                border: 4px rgb(137, 223, 26) ridge;
                 padding: 8px;
             }
             h2, h3 {
                 margin: 0px;
             }
+                     /* portfolio styles */
+         .content h1 {
+             color: black;
+         }
+
+         #portfolio {
+             list-style-type: none;
+             padding-left: 0;
+         }
+
+         #portfolio li {
+             background: #fff;
+             padding: 10px;
+             border-radius: 10px;
+             margin-bottom: 10px;
+         }
+
+         #portfolio li:hover {
+             background: #eee;
+         }
+
+         #portfolio a {
+             text-decoration: none;
+             color: #454545;
+         }
          </style>
     </head>
     
@@ -77,32 +102,19 @@
                         <a href= "index.html"> Home </a>
                     </li>
                     <li class="nav-li">
-                        <a href= "portfolio.html" > Portfolio</a>
+                        <a href= "portfolio.html" > </a>Portfolio</a>
                     </li>
                 </ul>
             </nav>
             <main>
-                <!-- Sidebar section -->
-                <div class= "sidebar"> 
-                    <img class= "sidebar-img" src="images/pfpreal.jpg">
+                <div class="content">
+                    <h1>Portfolio</h1>
+                    <ul id="portfolio">
+                        <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
+                        <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+                        <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
+                    </ul>
                 </div>
-                 <!-- Content section -->
-                 <div class="content" >
-                    <h2> Brogan Mulkey </h2>
-                    <p> Student at Northshore High</p>
-                    <!-- Interests section -->
-                    <div id="interests">
-                        <h3> Interest </h3>
-                        <ul>
-                            <li> Music </li>
-                            <li> Video games </li>
-                            <li> Coding </li>
-                        </ul>
-
-                
-                    </div>
-
-               </div>
             </main>
         </div>    
     </body>
