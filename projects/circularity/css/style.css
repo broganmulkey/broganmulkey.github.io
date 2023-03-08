@@ -1,0 +1,8 @@
+body {
+    background: url("https://media.tenor.com/n7XOi8rjt1EAAAAd/eyebrow-raise-kitty-softpaws.gif") no-repeat center center fixed;
+    background-color: #cccccc;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
