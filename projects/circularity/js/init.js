@@ -25,10 +25,10 @@ var init = function (window) {
         
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {           // Code to draw a circle
-        circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);    //parameters for how the circle will be drawn
-        physikz.addRandomVelocity(circle, canvas);                          //controls the speed for the circles
-        view.addChild(circle);                                              //
-        circles.push(circle);                                               //
+        circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);    //calls a function from the draw library and then uses draw.randomCircleInArea to give a random size color and location to the circle
+        physikz.addRandomVelocity(circle, canvas);                          //stores the output of the function in circle/ uses physikz library to then add a random velocity and direction to our circle 
+        view.addChild(circle);                                              //adds the circle as a child of view (we did that in the first week)
+        circles.push(circle);                                               //saves the circle into the array by using the .push method 
         }   
 
         // TODO 3 / 7 : Call the drawCircle() function 
