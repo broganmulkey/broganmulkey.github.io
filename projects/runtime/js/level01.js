@@ -27,10 +27,42 @@ var level01 = function (window) {
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
+        
+        //function that creates sawblade at any given x & y value
+        function createSawBlade(x, y){
+            var hitZoneSize = 25; // the size of the hitzone assigned to the variable hitZoneSize
+            var damageFromObstacle = 10; // sets the damagae amount and assigns to a variable called damageFromObstacle
+            var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);  // creates the obstacle and assigns it to sawBladeHitZone
+            sawBladeHitZone.x = x; // assigns the x value using the argument passed as the x parameter
+            sawBladeHitZone.y = y; // assigns the y value using the argument passed as the y parameter
+            game.addGameItem(sawBladeHitZone); //adds the hitzone to the game
+            var obstacleImage = draw.bitmap("img/sawblade.png"); //draws the image as a bitmap and stores is to obstacle image
+            sawBladeHitZone.addChild(obstacleImage); // adds obstacleImage as a child of the sawBladeHitZone
+            obstacleImage.x = -25; //modify the x value of the image to line up with the hitzone
+            obstacleImage.y = -25; //modify the y value of the image to line up with the hitzone
+        }
+        
+        createSawBlade(200, groundY - 100);
+        createSawBlade(400, groundY - 100);
+        createSawBlade(600, groundY);
 
+
+        function createSpike(x, y){
+            var hitZoneSize = 25; // the size of the hitzone assigned to the variable hitZoneSize
+            var damageFromObstacle = 10; // sets the damagae amount and assigns to a variable called damageFromObstacle
+            var spikeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);  // creates the obstacle and assigns it to sawBladeHitZone
+            spikeHitZone.x = x; // assigns the x value using the argument passed as the x parameter
+            spikeHitZone.y = y; // assigns the y value using the argument passed as the y parameter
+            game.addGameItem(spikeHitZone); //adds the hitzone to the game
+            var obstacleImage = draw.bitmap("img/sawblade.png"); //draws the image as a bitmap and stores is to obstacle image
+            spikeHitZone.addChild(obstacleImage); // adds obstacleImage as a child of the sawBladeHitZone
+            obstacleImage.x = -25; //modify the x value of the image to line up with the hitzone
+            obstacleImage.y = -25; //modify the y value of the image to line up with the hitzone
+        }
         
-        
-        
+        createSawBlade(200, groundY - 100);
+        createSawBlade(400, groundY - 100);
+        createSawBlade(600, groundY);
         // DO NOT EDIT CODE BELOW HERE
     }
 };
