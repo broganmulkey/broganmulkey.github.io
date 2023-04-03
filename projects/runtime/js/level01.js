@@ -17,15 +17,16 @@ var level01 = function (window) {
             "speed": -3,
             "gameItems": [
                 { "type": "thornBushS", "x": 800, "y": groundY - 10},
-                { "type": "thornBushL", "x": 600, "y": groundY -60, collected: false},
+                { "type": "thornBushL", "x": 600, "y": groundY -70, collected: false},
                // { "type": "thornBushL", "x": 800, "y": groundY - 110},
                // { "type": "thornBushL", "x": 1000, "y": groundY - 110},
 
                // { "type": "enemy", "x": 400, "y": groundY - 50},
                // { "type": "enemy", "x": 600, "y": groundY - 50},
 
-                {"type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": 600, "y": groundY -100, "velocityX": -2, "health": 20},
+               // {"type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": 600, "y": groundY -100, "velocityX": -2, "health": 20},
                 
+
 
 
               
@@ -47,17 +48,17 @@ var level01 = function (window) {
             thornBushLHitZone.x = x; // assigns the x value using the argument passed as the x parameter
             thornBushLHitZone.y = y; // assigns the y value using the argument passed as the y parameter
             game.addGameItem(thornBushLHitZone); //adds the hitzone to the game
-            var obstacleImage = draw.bitmap("img/thornBushL.jpg"); //draws the image as a bitmap and stores is to obstacle image
+            var obstacleImage = draw.bitmap("img/thornBushL.png"); //draws the image as a bitmap and stores is to obstacle image
             thornBushLHitZone.addChild(obstacleImage); // adds obstacleImage as a child of the thornBushLHitZone
-            obstacleImage.x = -25; //modify the x value of the image to line up with the hitzone
-            obstacleImage.y = -25; //modify the y value of the image to line up with the hitzone
+            obstacleImage.x = -45; //modify the x value of the image to line up with the hitzone
+            obstacleImage.y = -75; //modify the y value of the image to line up with the hitzone
             thornBushLHitZone.onProjectileCollision = function () {                
                 thornBushLHitZone.fadeOut();
-
+                levelData.gameItems.push({ "type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": x, "y": y, "velocityX": -2, "health": 20 })
+                console.log(levelData.gameItems)
             };
 
         }
-
 
         function createthornBushS(x, y){
             var hitZoneSize = 25; // the size of the hitzone assigned to the variable hitZoneSize
@@ -68,8 +69,8 @@ var level01 = function (window) {
             game.addGameItem(thornBushSHitZone); //adds the hitzone to the game
             var obstacleImage = draw.bitmap("img/thornBushS.png"); //draws the image as a bitmap and stores is to obstacle image
             thornBushSHitZone.addChild(obstacleImage); // adds obstacleImage as a child of the thornBushSHitZone
-            obstacleImage.x = -25; //modify the x value of the image to line up with the hitzone
-            obstacleImage.y = -25; //modify the y value of the image to line up with the hitzone
+            obstacleImage.x = -55; //modify the x value of the image to line up with the hitzone
+            obstacleImage.y = -65; //modify the y value of the image to line up with the hitzone
         }
 
 
@@ -123,17 +124,18 @@ var level01 = function (window) {
             game.addGameItem(reward);
             reward.velocityX = velocityX;
             reward.onPlayerCollision = function () {
-                game.changeIntegrity(health)                
+                game.increaseScore(health)                
                 reward.fadeOut();
+                console.log("collision detected")
             };
         }
 
        
 
         //loop for gameItems
+        
         for (var i = 0; i < levelData.gameItems.length; i++){
             var gameItem = levelData.gameItems[i]; // assigns the current index of the gameItem array to the gameItem variable
-
             if(gameItem.type === "thornBushL"){ //checks the type of the game item
                 createthornBushL(gameItem.x, gameItem.y); //  if the type is true it executes createthornBushL
             }
@@ -143,8 +145,12 @@ var level01 = function (window) {
             if(gameItem.type === "enemy"){ //checks the type of the game item
                 createEnemy(gameItem.x, gameItem.y); //  if the type is true it executes createEnemy
             }
-    
+            if (gameItem.type === "reward") {
+                createReward(gameItem.x, gameItem.y);
+            }
+        
         }
+
         
         if (levelData.gameItems[1].collected === true){
             createReward(gameItem.hitBoxSize, gameItem.image, gameItem.offsetX, gameItem.offsetY, levelData.gameItems[1].x, levelData.gameItems[1].y, gameItem.velocityX, gameItem.health)
