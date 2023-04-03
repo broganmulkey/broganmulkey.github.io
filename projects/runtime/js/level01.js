@@ -21,7 +21,20 @@ var level01 = function (window) {
                // { "type": "thornBushL", "x": 800, "y": groundY - 110},
                // { "type": "thornBushL", "x": 1000, "y": groundY - 110},
 
-               // { "type": "enemy", "x": 400, "y": groundY - 50},
+                { "type": "snake", "x": 1000, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1200, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1300, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1400, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1600, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1700, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1800, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1900, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 2000, "y": groundY - 20, "velocityX": -2.5},
+
+
+
+                { "type": "bear", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
                // { "type": "enemy", "x": 600, "y": groundY - 50},
 
                // {"type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": 600, "y": groundY -100, "velocityX": -2, "health": 20},
@@ -91,24 +104,45 @@ var level01 = function (window) {
         //createSawBlade(400, groundY - 110);
         //createSawBlade(600, groundY);
 
-     function createEnemy (x, y, velocityX){
-        var enemy = game.createGameItem("enemy", 25); // create the gameItem and store it to the variable enemy 
-        var redSquare = draw.rect(50, 50, "red"); // draws a rectangle and stores it in the gameItem variable
-        redSquare.x = -25; // stores a value as the x value of the gameItem
-        redSquare.y = -25; // stores a value as the y value of the gameItem
-        enemy.addChild(redSquare); //adds the gameItem as a child of enemy
-        enemy.x = x; //stores the value passed as the x argument as the enemys x value
-        enemy.y = y; //stores the value passed as the y argument as the enemys x value
-        game.addGameItem(enemy); // adds the enemy as an item to the game
-        enemy.velocityX = velocityX; // assigns a value to the velocityX of an enemy to make it move
+     function createSnake (x, y, velocityX){
+        var snake = game.createGameItem("snake", 25); // create the gameItem and store it to the variable snake 
+        var greenSnake = draw.bitmap("img/greenSnake.png"); //draws the image as a bitmap and stores is to snake image
+        greenSnake.x = -25; // stores a value as the x value of the gameItem
+        greenSnake.y = -25; // stores a value as the y value of the gameItem
+        snake.addChild(greenSnake); //adds the gameItem as a child of snake
+        snake.x = x; //stores the value passed as the x argument as the snakes x value
+        snake.y = y; //stores the value passed as the y argument as the snakes x value
+        game.addGameItem(snake); // adds the snake as an item to the game
+        snake.velocityX = velocityX; // assigns a value to the velocityX of an snake to make it move
         
-        enemy.onPlayerCollision = function () {
-            game.changeIntegrity(-10) // subtracts from the health when halle collides with an enemy
+        snake.onPlayerCollision = function () {
+            game.changeIntegrity(-10) // subtracts from the health when halle collides with a snake
         };
-        enemy.onProjectileCollision = function () {
-            game.increaseScore(100); // adds to score when halle shots the enemy
-            game.changeIntegrity(10) // adds to health when halle shots the enemy
-            enemy.fadeOut(); //fades enemy out when halle shots them 
+        snake.onProjectileCollision = function () {
+            game.increaseScore(0); // adds to score when halle shots the snake
+            game.changeIntegrity(0) // adds to health when halle shots the snake
+            snake.fadeOut(); //fades snake out when halle shots them 
+        };
+    }
+
+    function createBear (x, y, velocityX){
+        var bear = game.createGameItem("bear", 25); // create the gameItem and store it to the variable bear 
+        var brownBear = draw.bitmap("img/bearplaceholder.png"); //draws the image as a bitmap and stores is to bear image
+        brownBear.x = -65; // stores a value as the x value of the gameItem
+        brownBear.y = -100; // stores a value as the y value of the gameItem
+        bear.addChild(brownBear); //adds the gameItem as a child of bear
+        bear.x = x; //stores the value passed as the x argument as the bears x value
+        bear.y = y; //stores the value passed as the y argument as the bears x value
+        game.addGameItem(bear); // adds the bear as an item to the game
+        bear.velocityX = velocityX; // assigns a value to the velocityX of an bear to make it move
+        
+        bear.onPlayerCollision = function () {
+            game.changeIntegrity(-10) // subtracts from the health when halle collides with a bear
+        };
+        bear.onProjectileCollision = function () {
+            game.increaseScore(0); // adds to score when halle shots the bear
+            game.changeIntegrity(0) // adds to health when halle shots the bear
+            bear.fadeOut(); //fades bear out when halle shots them 
         };
     }
 
@@ -144,6 +178,12 @@ var level01 = function (window) {
             }
             if(gameItem.type === "enemy"){ //checks the type of the game item
                 createEnemy(gameItem.x, gameItem.y); //  if the type is true it executes createEnemy
+            }
+            if(gameItem.type === "snake"){ //checks the type of the game item
+                createSnake(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createSnake
+            }
+            if(gameItem.type === "bear"){ //checks the type of the game item
+                createBear(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createBear
             }
             if (gameItem.type === "reward") {
                 createReward(gameItem.x, gameItem.y);
