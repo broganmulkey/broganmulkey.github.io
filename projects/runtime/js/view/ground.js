@@ -14,12 +14,12 @@
         render();
         
         app.addResizeable(ground);
-        ground.y = (canvas.height - ground.getBounds().height) / 1.2;
+        ground.y = (canvas.height - ground.getBounds().height) / 1.35;
         app.view.addChild(ground);
         
         function render() {
             ground.removeAllChildren();
-            ground.addChild(draw.rect(canvas.width, 10, '#CCC'));
+            ground.addChild(draw.rect(canvas.width, 10, '#003400'));
         }
         
         function resize(argument) {

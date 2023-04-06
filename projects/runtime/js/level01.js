@@ -16,33 +16,23 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "thornBushS", "x": 800, "y": groundY - 10},
-                { "type": "thornBushL", "x": 600, "y": groundY -70, collected: false},
+               // { "type": "thornBushS", "x": 800, "y": groundY - 10},
+                { "type": "snakeTree", "x": 1000, "y": groundY - 100},
+                { "type": "blueberry", "x": 800, "y": groundY - 10, "velocityX": -2},
+                { "type": "thornBushL", "x": 800, "y": groundY -70, collected: false},
                // { "type": "thornBushL", "x": 800, "y": groundY - 110},
                // { "type": "thornBushL", "x": 1000, "y": groundY - 110},
 
                 { "type": "snake", "x": 1000, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1200, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1300, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1400, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1600, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1700, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1800, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 1900, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 2000, "y": groundY - 20, "velocityX": -2.5},
+               
 
-
-
-                { "type": "bear", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 2550, "y": groundY - 10, "velocityX": -2.5},
+                { "type": "alligator", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
                // { "type": "enemy", "x": 600, "y": groundY - 50},
 
                // {"type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": 600, "y": groundY -100, "velocityX": -2, "health": 20},
                 
 
-
-
-              
             ]
         };
         window.levelData = levelData;
@@ -67,7 +57,6 @@ var level01 = function (window) {
             obstacleImage.y = -75; //modify the y value of the image to line up with the hitzone
             thornBushLHitZone.onProjectileCollision = function () {                
                 thornBushLHitZone.fadeOut();
-                levelData.gameItems.push({ "type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": x, "y": y, "velocityX": -2, "health": 20 })
                 console.log(levelData.gameItems)
             };
 
@@ -82,8 +71,23 @@ var level01 = function (window) {
             game.addGameItem(thornBushSHitZone); //adds the hitzone to the game
             var obstacleImage = draw.bitmap("img/thornBushS.png"); //draws the image as a bitmap and stores is to obstacle image
             thornBushSHitZone.addChild(obstacleImage); // adds obstacleImage as a child of the thornBushSHitZone
-            obstacleImage.x = -55; //modify the x value of the image to line up with the hitzone
+            obstacleImage.x = -50; //modify the x value of the image to line up with the hitzone
             obstacleImage.y = -65; //modify the y value of the image to line up with the hitzone
+        }
+
+        function createsnakeTree(x, y){
+            var hitZoneSize = 25; // the size of the hitzone assigned to the variable hitZoneSize
+            var damageFromObstacle = 10; // sets the damagae amount and assigns to a variable called damageFromObstacle
+            var snakeTreeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);  // creates the obstacle and assigns it to thornBushSHitZone
+            snakeTreeHitZone.x = x; // assigns the x value using the argument passed as the x parameter
+            snakeTreeHitZone.y = y; // assigns the y value using the argument passed as the y parameter
+            game.addGameItem(snakeTreeHitZone); //adds the hitzone to the game
+            var snakeTreeImage = draw.bitmap("img/snakeTree.png"); //draws the image as a bitmap and stores is to obstacle image
+            snakeTreeHitZone.addChild(snakeTreeImage); // adds snakeTreeImage as a child of the snakeTreeHitZone
+            snakeTreeImage.x = -55; //modify the x value of the image to line up with the hitzone
+            snakeTreeImage.y = -225; //modify the y value of the image to line up with the hitzone
+            snakeTreeImage.scaleX = 0.7
+            snakeTreeImage.scaleY = 0.7
         }
 
 
@@ -114,7 +118,8 @@ var level01 = function (window) {
         snake.y = y; //stores the value passed as the y argument as the snakes x value
         game.addGameItem(snake); // adds the snake as an item to the game
         snake.velocityX = velocityX; // assigns a value to the velocityX of an snake to make it move
-        
+       
+
         snake.onPlayerCollision = function () {
             game.changeIntegrity(-10) // subtracts from the health when halle collides with a snake
         };
@@ -124,28 +129,64 @@ var level01 = function (window) {
             snake.fadeOut(); //fades snake out when halle shots them 
         };
     }
-
-    function createBear (x, y, velocityX){
-        var bear = game.createGameItem("bear", 25); // create the gameItem and store it to the variable bear 
-        var brownBear = draw.bitmap("img/bearplaceholder.png"); //draws the image as a bitmap and stores is to bear image
-        brownBear.x = -65; // stores a value as the x value of the gameItem
-        brownBear.y = -100; // stores a value as the y value of the gameItem
-        bear.addChild(brownBear); //adds the gameItem as a child of bear
-        bear.x = x; //stores the value passed as the x argument as the bears x value
-        bear.y = y; //stores the value passed as the y argument as the bears x value
-        game.addGameItem(bear); // adds the bear as an item to the game
-        bear.velocityX = velocityX; // assigns a value to the velocityX of an bear to make it move
+//bear
+    function createAlligator (x, y, velocityX){
+        var alligator = game.createGameItem("alligator", 25); // create the gameItem and store it to the variable bear 
+        var greenAlligator = draw.bitmap("img/Alligator.png"); //draws the image as a bitmap and stores is to bear image
+        greenAlligator.x = -105; // stores a value as the x value of the gameItem
+        greenAlligator.y = -95; // stores a value as the y value of the gameItem
+        alligator.addChild(greenAlligator); //adds the gameItem as a child of alligator
+        alligator.x = x; //stores the value passed as the x argument as the alligators x value
+        alligator.y = y; //stores the value passed as the y argument as the alligators x value
+        game.addGameItem(alligator); // adds the alligator as an item to the game
+        alligator.velocityX = velocityX; // assigns a value to the velocityX of an alligator to make it move
         
-        bear.onPlayerCollision = function () {
-            game.changeIntegrity(-10) // subtracts from the health when halle collides with a bear
+        alligator.onPlayerCollision = function () {
+            game.changeIntegrity(-10) // subtracts from the health when halle collides with a alligator
         };
-        bear.onProjectileCollision = function () {
-            game.increaseScore(0); // adds to score when halle shots the bear
-            game.changeIntegrity(0) // adds to health when halle shots the bear
-            bear.fadeOut(); //fades bear out when halle shots them 
+        alligator.onProjectileCollision = function () {
+            game.increaseScore(0); // adds to score when halle shots the alligator
+            game.changeIntegrity(0) // adds to health when halle shots the alligator
+            alligator.fadeOut(); //fades alligator out when halle shots them 
         };
     }
 
+    function createBlueberry (x, y, velocityX){
+        var blueberry = game.createGameItem("blueberry", 25); // create the gameItem and store it to the variable bear 
+        var berryImage = draw.bitmap("img/blueberry.png"); //draws the image as a bitmap and stores is to bear image
+        berryImage.x = -25; // stores a value as the x value of the gameItem
+        berryImage.y = -35; // stores a value as the y value of the gameItem
+        blueberry.addChild(berryImage); //adds the gameItem as a child of blueberry
+        blueberry.x = x; //stores the value passed as the x argument as the blueberry x value
+        blueberry.y = y; //stores the value passed as the y argument as the blueberry x value
+        game.addGameItem(blueberry); // adds the blueberry as an item to the game
+        blueberry.velocityX = velocityX; // assigns a value to the velocityX of an blueberry to make it move
+        berryImage.scaleX = 0.4
+        berryImage.scaleY = 0.4
+
+        blueberry.onPlayerCollision = function () {
+            blueberry.fadeOut(); //fades blueberry out when halle shots them 
+            game.changeIntegrity(10) // subtracts from the health when halle collides with a blueberry
+        };
+    }
+    function createMeat (x, y, velocityX){
+        var meat = game.createGameItem("meat", 25); // create the gameItem and store it to the variable bear 
+        var meatImage = draw.bitmap("img/meat.png"); //draws the image as a bitmap and stores is to bear image
+        meatImage.x = -25; // stores a value as the x value of the gameItem
+        meatImage.y = -35; // stores a value as the y value of the gameItem
+        meat.addChild(meatImage); //adds the gameItem as a child of meat
+        meat.x = x; //stores the value passed as the x argument as the meat x value
+        meat.y = y; //stores the value passed as the y argument as the meat x value
+        game.addGameItem(meat); // adds the meat as an item to the game
+        meat.velocityX = velocityX; // assigns a value to the velocityX of an meat to make it move
+        meatImage.scaleX = 0.4
+        meatImage.scaleY = 0.4
+
+        meat.onPlayerCollision = function () {
+            meat.fadeOut(); //fades meat out when halle shots them 
+            game.changeIntegrity(10) // subtracts from the health when halle collides with a meat
+        };
+    }
        // createEnemy(400,groundY - 50, -1.5);
         function createReward (hitBoxSize, image, offsetX, offsetY, x, y, velocityX, health){
             var reward = game.createGameItem("reward", hitBoxSize);
@@ -176,14 +217,23 @@ var level01 = function (window) {
             if(gameItem.type === "thornBushS"){ //checks the type of the game item
                 createthornBushS(gameItem.x, gameItem.y); //  if the type is true it executes createthornBushS
             }
+            if(gameItem.type === "snakeTree"){ //checks the type of the game item
+                createsnakeTree(gameItem.x, gameItem.y); //  if the type is true it executes createsnakeTree
+            }
             if(gameItem.type === "enemy"){ //checks the type of the game item
                 createEnemy(gameItem.x, gameItem.y); //  if the type is true it executes createEnemy
             }
             if(gameItem.type === "snake"){ //checks the type of the game item
                 createSnake(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createSnake
             }
-            if(gameItem.type === "bear"){ //checks the type of the game item
-                createBear(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createBear
+            if(gameItem.type === "alligator"){ //checks the type of the game item
+                createAlligator(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createAlligator
+            }
+            if(gameItem.type === "blueberry"){ //checks the type of the game item
+                createBlueberry(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createBlueberry
+            }
+            if(gameItem.type === "meat"){ //checks the type of the game item
+                createMeat(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createMeat
             }
             if (gameItem.type === "reward") {
                 createReward(gameItem.x, gameItem.y);
