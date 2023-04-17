@@ -16,22 +16,79 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-               // { "type": "thornBushS", "x": 800, "y": groundY - 10},
-                { "type": "snakeTree", "x": 1000, "y": groundY - 100},
-                { "type": "blueberry", "x": 800, "y": groundY - 10, "velocityX": -2},
-                { "type": "thornBushL", "x": 800, "y": groundY -70, collected: false},
-               // { "type": "thornBushL", "x": 800, "y": groundY - 110},
-               // { "type": "thornBushL", "x": 1000, "y": groundY - 110},
 
+                //foliage 
+                { "type": "coin", "x": 500, "y": groundY - 5, "velocityX": -2},
+                { "type": "blueberry", "x": 800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 800, "y": groundY -70},    
+                { "type": "thornBushS", "x": 1000, "y": groundY - 10},
+                { "type": "snakeTree", "x": 1500, "y": groundY - 110},
+                { "type": "thornBushS", "x": 1800, "y": groundY - 10},
+                { "type": "thornBushS", "x": 2000, "y": groundY - 10},
+                { "type": "blueberry", "x": 2100, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 2100, "y": groundY -70},
+                { "type": "blueberry", "x": 2300, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 2300, "y": groundY -70},   
+                { "type": "coin", "x": 2350, "y": groundY - 5, "velocityX": -2},
+                { "type": "snakeTree", "x": 2500, "y": groundY - 110},
+                { "type": "thornBushS", "x": 2550, "y": groundY - 10},
+                { "type": "thornBushS", "x": 2700, "y": groundY - 10},
+                { "type": "thornBushS", "x": 2800, "y": groundY - 10},
+                { "type": "blueberry", "x": 3000, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3000, "y": groundY -70}, 
+                { "type": "coin", "x": 3100, "y": groundY - 5, "velocityX": -2},
+                { "type": "thornBushS", "x": 3200, "y": groundY - 10},
+                { "type": "thornBushS", "x": 3400, "y": groundY - 10},
+                { "type": "blueberry", "x": 3500, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3500, "y": groundY -70}, 
+                { "type": "snakeTree", "x": 3500, "y": groundY - 110},
+                { "type": "blueberry", "x": 3800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3800, "y": groundY -70}, 
+                { "type": "blueberry", "x": 3900, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3900, "y": groundY -70}, 
+                { "type": "thornBushS", "x": 4000, "y": groundY - 10},
+                { "type": "coin", "x": 4100, "y": groundY - 5, "velocityX": -2},
+                { "type": "blueberry", "x": 4200, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 4200, "y": groundY -70}, 
+                { "type": "blueberry", "x": 4400, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 4400, "y": groundY -70}, 
+                { "type": "snakeTree", "x": 4600, "y": groundY - 110},
+                { "type": "thornBushS", "x": 4900, "y": groundY - 10},
+                { "type": "thornBushS", "x": 5000, "y": groundY - 10},
+                { "type": "coin", "x": 5100, "y": groundY - 5, "velocityX": -2},
+                { "type": "blueberry", "x": 5100, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5100, "y": groundY -70},
+                { "type": "blueberry", "x": 5200, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5200, "y": groundY -70},
+                { "type": "blueberry", "x": 5400, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5400, "y": groundY -70},
+                { "type": "snakeTree", "x": 5600, "y": groundY - 110},
+                { "type": "snakeTree", "x": 5800, "y": groundY - 110},
+                { "type": "coin", "x": 5800, "y": groundY - 5, "velocityX": -2},
+                { "type": "blueberry", "x": 5800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5800, "y": groundY -70},
+                { "type": "blueberry", "x": 6000, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6000, "y": groundY -70},
+                { "type": "thornBushS", "x": 6100, "y": groundY - 10},
+                { "type": "snakeTree", "x": 6300, "y": groundY - 110},
+                { "type": "blueberry", "x": 6350, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6350, "y": groundY -70},
+                { "type": "snakeTree", "x": 6400, "y": groundY - 110},
+                { "type": "thornBushS", "x": 6550, "y": groundY - 10},
+                { "type": "coin", "x": 6600, "y": groundY - 5, "velocityX": -2},
+                { "type": "thornBushS", "x": 6600, "y": groundY - 10},
+                { "type": "snakeTree", "x": 6700, "y": groundY - 110},
+                { "type": "blueberry", "x": 6700, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6700, "y": groundY -70},
+                { "type": "blueberry", "x": 6900, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6900, "y": groundY -70},
+                { "type": "coin", "x": 7000, "y": groundY - 5, "velocityX": -2},
+                //physical enemy
                 { "type": "snake", "x": 1000, "y": groundY - 20, "velocityX": -2.5},
-               
+                { "type": "snake", "x": 2000, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 2580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 3000, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 3300, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 3800, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 4000, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 4580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 4500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 4800, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 5000, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 5500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 5580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 5500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 6580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 6500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 7580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 7500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 8580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 8500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "meat", "x": 9580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 9500, "y": groundY - 20, "velocityX": -2.5},
 
-                { "type": "meat", "x": 2550, "y": groundY - 10, "velocityX": -2.5},
-                { "type": "alligator", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
-               // { "type": "enemy", "x": 600, "y": groundY - 50},
 
-               // {"type": "reward", "hitBoxSize": 25, "image":"img/blueberry.png", "offsetX": -25, "offsetY": -25, "x": 600, "y": groundY -100, "velocityX": -2, "health": 20},
-                
+
+
+
 
             ]
         };
@@ -46,7 +103,7 @@ var level01 = function (window) {
         
         function createthornBushL(x, y){
             var hitZoneSize = 25; // the size of the hitzone assigned to the variable hitZoneSize
-            var damageFromObstacle = 10; // sets the damagae amount and assigns to a variable called damageFromObstacle
+            var damageFromObstacle = 15; // sets the damagae amount and assigns to a variable called damageFromObstacle
             var thornBushLHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);  // creates the obstacle and assigns it to thornBushLHitZone
             thornBushLHitZone.x = x; // assigns the x value using the argument passed as the x parameter
             thornBushLHitZone.y = y; // assigns the y value using the argument passed as the y parameter
@@ -77,7 +134,7 @@ var level01 = function (window) {
 
         function createsnakeTree(x, y){
             var hitZoneSize = 25; // the size of the hitzone assigned to the variable hitZoneSize
-            var damageFromObstacle = 10; // sets the damagae amount and assigns to a variable called damageFromObstacle
+            var damageFromObstacle = 20; // sets the damagae amount and assigns to a variable called damageFromObstacle
             var snakeTreeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);  // creates the obstacle and assigns it to thornBushSHitZone
             snakeTreeHitZone.x = x; // assigns the x value using the argument passed as the x parameter
             snakeTreeHitZone.y = y; // assigns the y value using the argument passed as the y parameter
@@ -85,7 +142,7 @@ var level01 = function (window) {
             var snakeTreeImage = draw.bitmap("img/snakeTree.png"); //draws the image as a bitmap and stores is to obstacle image
             snakeTreeHitZone.addChild(snakeTreeImage); // adds snakeTreeImage as a child of the snakeTreeHitZone
             snakeTreeImage.x = -55; //modify the x value of the image to line up with the hitzone
-            snakeTreeImage.y = -225; //modify the y value of the image to line up with the hitzone
+            snakeTreeImage.y = -215; //modify the y value of the image to line up with the hitzone
             snakeTreeImage.scaleX = 0.7
             snakeTreeImage.scaleY = 0.7
         }
@@ -121,7 +178,7 @@ var level01 = function (window) {
        
 
         snake.onPlayerCollision = function () {
-            game.changeIntegrity(-10) // subtracts from the health when halle collides with a snake
+            game.changeIntegrity(-15) // subtracts from the health when halle collides with a snake
         };
         snake.onProjectileCollision = function () {
             game.increaseScore(0); // adds to score when halle shots the snake
@@ -142,7 +199,7 @@ var level01 = function (window) {
         alligator.velocityX = velocityX; // assigns a value to the velocityX of an alligator to make it move
         
         alligator.onPlayerCollision = function () {
-            game.changeIntegrity(-10) // subtracts from the health when halle collides with a alligator
+            game.changeIntegrity(-50) // subtracts from the health when halle collides with a alligator
         };
         alligator.onProjectileCollision = function () {
             game.increaseScore(0); // adds to score when halle shots the alligator
@@ -169,11 +226,31 @@ var level01 = function (window) {
             game.changeIntegrity(10) // subtracts from the health when halle collides with a blueberry
         };
     }
+
+    function createCoin (x, y, velocityX){
+        var coin = game.createGameItem("coin", 25); // create the gameItem and store it to the variable coin 
+        var coinImage = draw.bitmap("img/coin.png"); //draws the image as a bitmap and stores is to coin image
+        coinImage.x = -25; // stores a value as the x value of the gameItem
+        coinImage.y = -35; // stores a value as the y value of the gameItem
+        coin.addChild(coinImage); //adds the gameItem as a child of coin
+        coin.x = x; //stores the value passed as the x argument as the coin x value
+        coin.y = y; //stores the value passed as the y argument as the coin x value
+        game.addGameItem(coin); // adds the coin as an item to the game
+        coin.velocityX = velocityX; // assigns a value to the velocityX of an coin to make it move
+        coinImage.scaleX = 1
+        coinImage.scaleY = 1
+
+        coin.onPlayerCollision = function () {
+            coin.fadeOut(); //fades coin out when halle shots them 
+            game.changeIntegrity(0) // subtracts from the health when halle collides with a coin
+            game.increaseScore(100); // adds to score when halle collides with the coin
+        };
+    }
     function createMeat (x, y, velocityX){
         var meat = game.createGameItem("meat", 25); // create the gameItem and store it to the variable bear 
         var meatImage = draw.bitmap("img/meat.png"); //draws the image as a bitmap and stores is to bear image
         meatImage.x = -25; // stores a value as the x value of the gameItem
-        meatImage.y = -35; // stores a value as the y value of the gameItem
+        meatImage.y = -85; // stores a value as the y value of the gameItem
         meat.addChild(meatImage); //adds the gameItem as a child of meat
         meat.x = x; //stores the value passed as the x argument as the meat x value
         meat.y = y; //stores the value passed as the y argument as the meat x value
@@ -184,11 +261,11 @@ var level01 = function (window) {
 
         meat.onPlayerCollision = function () {
             meat.fadeOut(); //fades meat out when halle shots them 
-            game.changeIntegrity(10) // subtracts from the health when halle collides with a meat
+            game.changeIntegrity(30) // subtracts from the health when halle collides with a meat
         };
     }
        // createEnemy(400,groundY - 50, -1.5);
-        function createReward (hitBoxSize, image, offsetX, offsetY, x, y, velocityX, health){
+     /*   function createReward (hitBoxSize, image, offsetX, offsetY, x, y, velocityX, health){
             var reward = game.createGameItem("reward", hitBoxSize);
             var item = draw.bitmap(image);
             item.x = offsetX;
@@ -205,7 +282,7 @@ var level01 = function (window) {
             };
         }
 
-       
+       */
 
         //loop for gameItems
         
@@ -231,6 +308,9 @@ var level01 = function (window) {
             }
             if(gameItem.type === "blueberry"){ //checks the type of the game item
                 createBlueberry(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createBlueberry
+            }
+            if(gameItem.type === "coin"){ //checks the type of the game item
+                createCoin(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createCoin    
             }
             if(gameItem.type === "meat"){ //checks the type of the game item
                 createMeat(gameItem.x, gameItem.y, gameItem.velocityX); //  if the type is true it executes createMeat
