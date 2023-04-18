@@ -18,72 +18,72 @@ var level01 = function (window) {
             "gameItems": [
 
                 //foliage 
-                { "type": "coin", "x": 500, "y": groundY - 5, "velocityX": -2},
-                { "type": "blueberry", "x": 800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 800, "y": groundY -70},    
-                { "type": "thornBushS", "x": 1000, "y": groundY - 10},
-                { "type": "snakeTree", "x": 1500, "y": groundY - 110},
-                { "type": "thornBushS", "x": 1800, "y": groundY - 10},
-                { "type": "thornBushS", "x": 2000, "y": groundY - 10},
-                { "type": "blueberry", "x": 2100, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 2100, "y": groundY -70},
-                { "type": "blueberry", "x": 2300, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 2300, "y": groundY -70},   
-                { "type": "coin", "x": 2350, "y": groundY - 5, "velocityX": -2},
-                { "type": "snakeTree", "x": 2500, "y": groundY - 110},
-                { "type": "thornBushS", "x": 2550, "y": groundY - 10},
-                { "type": "thornBushS", "x": 2700, "y": groundY - 10},
-                { "type": "thornBushS", "x": 2800, "y": groundY - 10},
-                { "type": "blueberry", "x": 3000, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3000, "y": groundY -70}, 
-                { "type": "coin", "x": 3100, "y": groundY - 5, "velocityX": -2},
-                { "type": "thornBushS", "x": 3200, "y": groundY - 10},
-                { "type": "thornBushS", "x": 3400, "y": groundY - 10},
-                { "type": "blueberry", "x": 3500, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3500, "y": groundY -70}, 
-                { "type": "snakeTree", "x": 3500, "y": groundY - 110},
-                { "type": "blueberry", "x": 3800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3800, "y": groundY -70}, 
-                { "type": "blueberry", "x": 3900, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3900, "y": groundY -70}, 
-                { "type": "thornBushS", "x": 4000, "y": groundY - 10},
-                { "type": "coin", "x": 4100, "y": groundY - 5, "velocityX": -2},
-                { "type": "blueberry", "x": 4200, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 4200, "y": groundY -70}, 
-                { "type": "blueberry", "x": 4400, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 4400, "y": groundY -70}, 
-                { "type": "snakeTree", "x": 4600, "y": groundY - 110},
-                { "type": "thornBushS", "x": 4900, "y": groundY - 10},
-                { "type": "thornBushS", "x": 5000, "y": groundY - 10},
-                { "type": "coin", "x": 5100, "y": groundY - 5, "velocityX": -2},
-                { "type": "blueberry", "x": 5100, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5100, "y": groundY -70},
-                { "type": "blueberry", "x": 5200, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5200, "y": groundY -70},
-                { "type": "blueberry", "x": 5400, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5400, "y": groundY -70},
-                { "type": "snakeTree", "x": 5600, "y": groundY - 110},
-                { "type": "snakeTree", "x": 5800, "y": groundY - 110},
-                { "type": "coin", "x": 5800, "y": groundY - 5, "velocityX": -2},
-                { "type": "blueberry", "x": 5800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5800, "y": groundY -70},
-                { "type": "blueberry", "x": 6000, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6000, "y": groundY -70},
-                { "type": "thornBushS", "x": 6100, "y": groundY - 10},
-                { "type": "snakeTree", "x": 6300, "y": groundY - 110},
-                { "type": "blueberry", "x": 6350, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6350, "y": groundY -70},
-                { "type": "snakeTree", "x": 6400, "y": groundY - 110},
-                { "type": "thornBushS", "x": 6550, "y": groundY - 10},
-                { "type": "coin", "x": 6600, "y": groundY - 5, "velocityX": -2},
-                { "type": "thornBushS", "x": 6600, "y": groundY - 10},
-                { "type": "snakeTree", "x": 6700, "y": groundY - 110},
-                { "type": "blueberry", "x": 6700, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6700, "y": groundY -70},
-                { "type": "blueberry", "x": 6900, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6900, "y": groundY -70},
-                { "type": "coin", "x": 7000, "y": groundY - 5, "velocityX": -2},
+                { "type": "coin", "x": 500, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "blueberry", "x": 800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 800, "y": groundY -70},  //blueberry spawned under thronbushL with given x & y  
+                { "type": "thornBushS", "x": 1000, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "snakeTree", "x": 1500, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "thornBushS", "x": 1800, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "thornBushS", "x": 2000, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "blueberry", "x": 2100, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 2100, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 2300, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 2300, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y   
+                { "type": "coin", "x": 2350, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "snakeTree", "x": 2500, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "thornBushS", "x": 2550, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "thornBushS", "x": 2700, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "thornBushS", "x": 2800, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "blueberry", "x": 3000, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3000, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "coin", "x": 3100, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "thornBushS", "x": 3200, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "thornBushS", "x": 3400, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "blueberry", "x": 3500, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3500, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "snakeTree", "x": 3500, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "blueberry", "x": 3800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3800, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 3900, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 3900, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "thornBushS", "x": 4000, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "coin", "x": 4100, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "blueberry", "x": 4200, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 4200, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 4400, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 4400, "y": groundY -70}, //blueberry spawned under thronbushL with given x & y
+                { "type": "snakeTree", "x": 4600, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "thornBushS", "x": 4900, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "thornBushS", "x": 5000, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "coin", "x": 5100, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "blueberry", "x": 5100, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5100, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 5200, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5200, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 5400, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5400, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "snakeTree", "x": 5600, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "snakeTree", "x": 5800, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "coin", "x": 5800, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "blueberry", "x": 5800, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 5800, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 6000, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6000, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "thornBushS", "x": 6100, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "snakeTree", "x": 6300, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "blueberry", "x": 6350, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6350, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "snakeTree", "x": 6400, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "thornBushS", "x": 6550, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "coin", "x": 6600, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
+                { "type": "thornBushS", "x": 6600, "y": groundY - 10}, //thornbushS spawned at given x & y
+                { "type": "snakeTree", "x": 6700, "y": groundY - 110}, //snake tree spawned at given x & y
+                { "type": "blueberry", "x": 6700, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6700, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "blueberry", "x": 6900, "y": groundY - 10, "velocityX": -2},   { "type": "thornBushL", "x": 6900, "y": groundY -70},//blueberry spawned under thronbushL with given x & y
+                { "type": "coin", "x": 7000, "y": groundY - 5, "velocityX": -2}, //coin spawned at given x & y
                 //physical enemy
-                { "type": "snake", "x": 1000, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 2000, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 2580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 2500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 3000, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 3300, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 3800, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 4000, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 4580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 4500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 4800, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 5000, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "snake", "x": 5500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 5580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 5500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 6580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 6500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 7580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 7500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 8580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 8500, "y": groundY - 20, "velocityX": -2.5},
-                { "type": "meat", "x": 9580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 9500, "y": groundY - 20, "velocityX": -2.5},
+                { "type": "snake", "x": 1000, "y": groundY - 20, "velocityX": -2.5}, //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 2000, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 2500, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "meat", "x": 2580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 2500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
+                { "type": "snake", "x": 3000, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 3300, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 3800, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 4000, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "meat", "x": 4580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 4500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
+                { "type": "snake", "x": 4800, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 5000, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "snake", "x": 5500, "y": groundY - 20, "velocityX": -2.5},  //spawns snake at given x & y / also gives velocity
+                { "type": "meat", "x": 5580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 5500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
+                { "type": "meat", "x": 6580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 6500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
+                { "type": "meat", "x": 7580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 7500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
+                { "type": "meat", "x": 8580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 8500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
+                { "type": "meat", "x": 9580, "y": groundY - 10, "velocityX": -2.5},   { "type": "alligator", "x": 9500, "y": groundY - 20, "velocityX": -2.5}, //spawns meat first and then alligator ontop with given x, y, & velocity
 
 
 
@@ -94,7 +94,7 @@ var level01 = function (window) {
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
-        game.setDebugMode(true);
+        game.setDebugMode(false);
 
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE

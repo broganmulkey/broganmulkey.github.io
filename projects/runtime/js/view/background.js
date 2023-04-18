@@ -119,7 +119,7 @@ var background = function (window) {
                 tree.y = groundY - treeHeight; // subtracts Tree height from groundY and sets it as the Y value
                 background.addChild(tree); // adds the builing as a child to background
                 foregroundTrees.push(tree); //adds the Trees to the bigTrees array
-                console.log(foregroundTrees)
+                console.log(foregroundTrees) 
             }
         } // end of render function - DO NOT DELETE
         
