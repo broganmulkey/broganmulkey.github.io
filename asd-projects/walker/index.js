@@ -31,23 +31,47 @@ function runProgram(){
 
   // Game Item Objects
 
-  var walker = {
-    posX: 0,
-    posY: 0,
-    speedX: 0,
-    speedY: 0,
-    width: WALKER_WIDTH,
-    height: WALKER_HEIGHT,
-  }
+  
+  var walker = Walker("#walker",  0, 0, 0, 0, WALKER_WIDTH, WALKER_HEIGHT);
+  var walker2 = Walker("#walker2",  BOARD_HEIGHT - WALKER_HEIGHT, BOARD_WIDTH - WALKER_WIDTH, 0, 0, WALKER_WIDTH, WALKER_HEIGHT);
+  
+  
+  
+  //{
+  //  posX: BOARD_HEIGHT - WALKER_HEIGHT,
+  //  posY: BOARD_WIDTH - WALKER_WIDTH,
+  //  speedX: 0,
+  //  speedY: 0,
+  //  width: WALKER_WIDTH,
+  //  height: WALKER_HEIGHT,
+ // }
 
-  var walker2 = {
-    posX: BOARD_HEIGHT - WALKER_HEIGHT,
-    posY: BOARD_WIDTH - WALKER_WIDTH,
-    speedX: 0,
-    speedY: 0,
-    width: WALKER_WIDTH,
-    height: WALKER_HEIGHT,
+function Walker(id, posX, posY, speedX, speedY, width, height){
+  let obj = {
+    id: id,
+    posX: posX,
+    posY: posY,
+    speedX: speedX,
+    speedY: speedY,
+    width: width,
+    height: height,
   }
+  return obj;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
