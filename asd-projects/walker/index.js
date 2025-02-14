@@ -46,27 +46,6 @@ function runProgram(){
   //  height: WALKER_HEIGHT,
  // }
 
-function Walker(id, posX, posY, speedX, speedY, width, height){
-  let obj = {
-    id: id,
-    posX: posX,
-    posY: posY,
-    speedX: speedX,
-    speedY: speedY,
-    width: width,
-    height: height,
-  }
-  return obj;
-}
-
-
-
-
-
-
-
-
-
 
 
 
@@ -87,9 +66,12 @@ function Walker(id, posX, posY, speedX, speedY, width, height){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    repositionGameItem();
-    wallCollision();
-    redrawGameItem();
+    repositionGameItem(walker);
+    repositionGameItem(walker2);
+    wallCollision(walker);
+    wallCollision(walker2);
+    redrawGameItem(walker);
+    redrawGameItem(walker2);
     collideAction();
     
   }
@@ -198,40 +180,40 @@ function collideAction(){
   }
 }
 
-  function repositionGameItem(){
-    walker.posX += walker.speedX;
-    walker.posY += walker.speedY;
+  function repositionGameItem(obj){
+    obj.posX += obj.speedX;
+    obj.posY += obj.speedY;
+  }
 
-    walker2.posX += walker2.speedX;
-    walker2.posY += walker2.speedY;
+  function redrawGameItem(obj){
+    $(obj.id).css("left", obj.posX);
+    $(obj.id).css("top", obj.posY);
 
   }
 
-  function redrawGameItem(){
-    $("#walker").css("left", walker.posX);
-    $("#walker").css("top", walker.posY);
+  function wallCollision(obj){
+    if(obj.posX > BOARD_WIDTH - WALKER_WIDTH || obj.posX < 0){
+      obj.posX -= obj.speedX;
+    }
+    if(obj.posY > BOARD_HEIGHT - WALKER_HEIGHT || obj.posY < 0){
+      obj.posY -= obj.speedY;
+    }
 
-    $("#walker2").css("left", walker2.posX);
-    $("#walker2").css("top", walker2.posY);
+   
   }
 
-  function wallCollision(){
-    if(walker.posX > BOARD_WIDTH - WALKER_WIDTH || walker.posX < 0){
-      walker.posX -= walker.speedX;
+  function Walker(id, posX, posY, speedX, speedY, width, height){
+    let obj = {
+      id: id,
+      posX: posX,
+      posY: posY,
+      speedX: speedX,
+      speedY: speedY,
+      width: width,
+      height: height,
     }
-    if(walker.posY > BOARD_HEIGHT - WALKER_HEIGHT || walker.posY < 0){
-      walker.posY -= walker.speedY;
-    }
-
-    if(walker2.posX > BOARD_WIDTH - WALKER_WIDTH || walker2.posX < 0){
-      walker2.posX -= walker2.speedX;
-    }
-    if(walker2.posY > BOARD_HEIGHT - WALKER_HEIGHT || walker2.posY < 0){
-      walker2.posY -= walker2.speedY;
-    }
+    return obj;
   }
-
-
 
   function endGame() {
     // stop the interval timer
