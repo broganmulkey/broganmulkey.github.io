@@ -14,6 +14,7 @@ function runProgram(){
   const BOARD_HEIGHT = $("#board").height()
   const PADDLE_WIDTH = $("#paddleLeft").width();
   const PADDLE_HEIGHT = $("#paddleLeft").height();
+  const BALL_WIDTH = $("#ball").width();
 
 
 
@@ -23,8 +24,11 @@ const KEY = {
   "W": 87,
   "S": 83,
 
-  "UP": 38,
-  "DOWN": 40,
+
+//up 38, down 40
+
+  "UP": 73,
+  "DOWN": 75,
 }
 
 
@@ -68,9 +72,12 @@ var ball = CreateItem("#ball", (Math.random() > 0.5 ? -3 : 3), (Math.random() > 
     moveGameItem(paddleLeft)
     moveGameItem(paddleRight)
     moveGameItem(ball)
-    wallCollision(paddleLeft);//:3
-    wallCollision(paddleRight);//:3
-    wallCollision(ball);//:3
+    wallCollisionP(paddleLeft);//:3
+    wallCollisionP(paddleRight);//:3
+    wallCollisionB(ball);//:3
+    gameReset(ball);
+    collideAction(paddleLeft)
+    collideAction(paddleRight)
 
 
   }
@@ -114,25 +121,85 @@ function drawGameItem(obj){
 
 }
 
-function wallCollision(obj){
+function wallCollisionP(obj){
   if(obj.x > BOARD_WIDTH - PADDLE_WIDTH || obj.x < 0){
     obj.x -= obj.speedX;
   }
   if(obj.y > BOARD_HEIGHT - PADDLE_HEIGHT || obj.y < 0){
     obj.y -= obj.speedY;
   }
-
- 
 }
 
+function wallCollisionB(obj){
+ /* if(obj.x > BOARD_WIDTH - BALL_WIDTH || obj.x < 0){
+    obj.speedX = -obj.speedX;
+  }
+
+  */
+  if(obj.y > BOARD_HEIGHT - BALL_WIDTH || obj.y < 0){
+    obj.speedY = -obj.speedY 
+  }
+}
+
+function gameReset (obj){
+   if(obj.x > BOARD_WIDTH - BALL_WIDTH || obj.x < 0){
+    obj.x -= obj.speedX; obj.y -= obj.speedY || alert("hit");
+  }
+
+  
+}
+
+//determine if objects collide
+
+
+function doCollide(obj) {
+  // TODO: calculate and store the remaining
+  // sides of the obj1
+  obj.leftX = obj.x;
+  obj.topY = obj.y;
+  obj.rightX = obj.x + obj.width; 
+  obj.bottomY = obj.y + obj.height;
+  
+  /*
+  // TODO: Do the same for obj2
+  obj2.leftX = obj2.x;
+  obj2.topY = obj2.y;
+  obj2.rightX = obj2.x + obj2.width; 
+  obj2.bottomY = obj2.y + obj2.height;
+
+  // TODO: Return true if they are overlapping, false otherwise
+if(
+  obj2.rightX > obj1.leftX &&
+  obj2.leftX < obj1.rightX &&
+  obj2.bottomY > obj1.topY &&
+  obj2.topY < obj1.bottomY 
+  
+ 
+  ){
+    return true;
+  } else {
+    return false;
+  }
+  */
+
+}  
+
+
+function collideAction(paddleLeft, paddleRight){
+  if(doCollide(paddleLeft, paddleRight, ball)){
+    console.log("tagged");
+    ball.speedX *= 1.5;
+    ball.speedY *= 1.5;
+  }
+}
 
 function moveGameItem(obj){
   obj.x += obj.speedX;
   obj.y += obj.speedY;
 }
   
-//check boundaries of paddles
-//determine if objects collide
+//check boundaries of paddles [CHECK]
+
 //handle what happens if ball hits the walls
 //handle what happens when ball hits paddles
 //handle what happens when someone wins
