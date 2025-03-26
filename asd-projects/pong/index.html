@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>PONG</title>
     <!-- Load CSS files -->
     <link rel="stylesheet" type="text/css" href="index.css">
     
@@ -11,11 +11,20 @@
   </head>
   
   <body>
-    <div id='board'>
-      <div class = "paddle" id='paddleLeft'></div>
-      <div class = "paddle" id='paddleRight'></div>
-      <div id = "ball"></div>
-
+    <div id="game-container">
+      <div id="board">
+        <div class="paddle" id="paddleLeft"></div>
+        <div class="paddle" id="paddleRight"></div>
+        <div id="ball"></div>
+      </div>
+      <div id='scoreboard'>
+        <div class="player-score">
+          <span class="player-label">Player One:</span> <span id="scoreLeft">0</span>
+        </div>
+        <div class="player-score">
+          <span class="player-label">Player Two:</span> <span id="scoreRight">0</span>
+        </div>
+      </div>
     </div>
   </body>
 </html>

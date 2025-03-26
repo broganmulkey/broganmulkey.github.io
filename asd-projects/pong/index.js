@@ -2,7 +2,14 @@
 
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
   
+
+
+let scoreLeft = 0;
+let scoreRight = 0;
+const WINNING_SCORE = 7;
+
 function runProgram(){
+  updateScore();
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -18,23 +25,27 @@ function runProgram(){
 
 
 
-
   // Game Item Objects
 const KEY = {
   "W": 87,
   "S": 83,
 
 
-//up 38, down 40
+//normal keycodes for arrows
+"UP": 38,
+"DOWN": 40,
 
+//Keycodes for I and K for braydon keyboard
+/*
   "UP": 73,
   "DOWN": 75,
+  */
 }
 
 
 
 function CreateItem(id, speedX, speedY){
-  var obj = {
+  return {
     id: id,
     x: parseFloat($(id).css("left")),
     y: parseFloat($(id).css("top")),
@@ -42,19 +53,21 @@ function CreateItem(id, speedX, speedY){
     speedY: speedY,
     width: $(id).width(),
     height: $(id).height(),
-  }
-  return obj
+  };
 }
 
 //randomNum = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+var scoreBoard = CreateItem("#scoreBoard",0,0);
 var paddleLeft =  CreateItem("#paddleLeft", 0, 0);
 var paddleRight =  CreateItem("#paddleRight", 0, 0);
 var ball = CreateItem("#ball", (Math.random() > 0.5 ? -3 : 3), (Math.random() > 0.5 ? -3 : 3))
 
   // one-time setup
+  
+  
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);
      // execute newFrame every 0.0166 seconds (60 Frames per second)
-     $(document).on('keyup', handleKeyUp);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keyup', handleKeyUp);                           // change 'eventType' to the type of event you want to handle
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -76,10 +89,8 @@ var ball = CreateItem("#ball", (Math.random() > 0.5 ? -3 : 3), (Math.random() > 
     wallCollisionP(paddleRight);//:3
     wallCollisionB(ball);//:3
     gameReset(ball);
-    collideAction(paddleLeft)
-    collideAction(paddleRight)
-
-
+    paddleCollisions(ball)
+    checkBoundaries(ball)
   }
   
   /* 
@@ -121,77 +132,42 @@ function drawGameItem(obj){
 
 }
 
+//handles what happens if paddle hits wall
 function wallCollisionP(obj){
-  if(obj.x > BOARD_WIDTH - PADDLE_WIDTH || obj.x < 0){
-    obj.x -= obj.speedX;
-  }
-  if(obj.y > BOARD_HEIGHT - PADDLE_HEIGHT || obj.y < 0){
-    obj.y -= obj.speedY;
-  }
+  obj.y = Math.max(0, Math.min(obj.y, BOARD_HEIGHT - PADDLE_HEIGHT));
 }
+
+
+//handles what happens if ball hits wall
 
 function wallCollisionB(obj){
- /* if(obj.x > BOARD_WIDTH - BALL_WIDTH || obj.x < 0){
-    obj.speedX = -obj.speedX;
-  }
 
-  */
   if(obj.y > BOARD_HEIGHT - BALL_WIDTH || obj.y < 0){
-    obj.speedY = -obj.speedY 
+    obj.speedY = -obj.speedY;
   }
 }
 
-function gameReset (obj){
-   if(obj.x > BOARD_WIDTH - BALL_WIDTH || obj.x < 0){
-    obj.x -= obj.speedX; obj.y -= obj.speedY || alert("hit");
+//handle what happens when ball hits paddles
+function paddleCollisions(obj){
+  if (
+    obj.x <= paddleLeft.x + paddleLeft.width && 
+    obj.y + obj.height >= paddleLeft.y && 
+    obj.y <= paddleLeft.y + paddleLeft.height &&
+    obj.speedX < 0
+  ) {
+    obj.speedX = -obj.speedX * 1.2;
   }
-
   
-}
-
-//determine if objects collide
-
-
-function doCollide(obj) {
-  // TODO: calculate and store the remaining
-  // sides of the obj1
-  obj.leftX = obj.x;
-  obj.topY = obj.y;
-  obj.rightX = obj.x + obj.width; 
-  obj.bottomY = obj.y + obj.height;
-  
-  /*
-  // TODO: Do the same for obj2
-  obj2.leftX = obj2.x;
-  obj2.topY = obj2.y;
-  obj2.rightX = obj2.x + obj2.width; 
-  obj2.bottomY = obj2.y + obj2.height;
-
-  // TODO: Return true if they are overlapping, false otherwise
-if(
-  obj2.rightX > obj1.leftX &&
-  obj2.leftX < obj1.rightX &&
-  obj2.bottomY > obj1.topY &&
-  obj2.topY < obj1.bottomY 
-  
- 
-  ){
-    return true;
-  } else {
-    return false;
-  }
-  */
-
-}  
-
-
-function collideAction(paddleLeft, paddleRight){
-  if(doCollide(paddleLeft, paddleRight, ball)){
-    console.log("tagged");
-    ball.speedX *= 1.5;
-    ball.speedY *= 1.5;
+  if (
+    obj.x + obj.width >= paddleRight.x && 
+    obj.y + obj.height >= paddleRight.y && 
+    obj.y <= paddleRight.y + paddleRight.height &&
+    obj.speedX > 0
+  ) {
+    obj.speedX = -obj.speedX * 1.2;
   }
 }
+
 
 function moveGameItem(obj){
   obj.x += obj.speedX;
@@ -199,20 +175,72 @@ function moveGameItem(obj){
 }
   
 //check boundaries of paddles [CHECK]
+function checkBoundaries(obj){
+  if(obj.x > BOARD_WIDTH - obj.width || obj.x < 0){
+    obj.x = BOARD_WIDTH/2 - obj.width/2;
+  }
+}
 
-//handle what happens if ball hits the walls
-//handle what happens when ball hits paddles
-//handle what happens when someone wins
-//handles the points
-//handles the game reset
 
 
-  function endGame() {
+function updateScore(){
+  $("#scoreLeft").text(scoreLeft);
+  $("#scoreRight").text(scoreRight);
+
+}
+
+function checkWin(){
+  if (scoreLeft >= WINNING_SCORE){
+    endGame("Player 1 Wins!");
+  } else if (scoreRight >= WINNING_SCORE){
+    endGame("Player 2 Wins!");
+  }
+}
+
+
+
+function gameReset (obj){
+  if(obj.x > BOARD_WIDTH - BALL_WIDTH) {
+    scoreLeft++;
+    updateScore();
+    checkWin();
+  } else if (obj.x < 0){
+    scoreRight++;
+    updateScore();
+    checkWin();
+  } else {
+    return;
+  }
+
+if(scoreLeft < WINNING_SCORE && scoreRight < WINNING_SCORE) {
+   obj.x = BOARD_WIDTH / 2 - BALL_WIDTH / 2;
+   obj.y = BOARD_HEIGHT /2 - BALL_WIDTH / 2;
+
+   obj.speedX = (Math.random() > 0.5 ? -3 : 3) * (Math.random() * 0.5 + 1);
+   obj.speedY = (Math.random() > 0.5 ? -3 : 3) * (Math.random() * 0.5 + 1);
+  }
+ }
+
+//function to end the game
+
+  function endGame(winnerText) {
     // stop the interval timer
     clearInterval(interval);
 
     // turn off event handlers
     $(document).off();
-  }
   
+    $("#scoreBoard").html(`<h2>${winnerText}</h2>`);
+    $("<button>")
+    .text("Play Again")
+    .attr("id", "playAgainBtn")
+    .css({
+      "font-size": "20px",
+      "padding": "10px 20px",
+      "margin-top": "10px",
+      "cursor": "pointer"
+    })
+    .appendTo("#scoreboard")
+    .click(() => location.reload());
+}
 }
