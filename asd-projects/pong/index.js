@@ -6,7 +6,7 @@ $(document).ready(runProgram); // wait for the HTML / CSS elements of the page t
 
 let scoreLeft = 0;
 let scoreRight = 0;
-const WINNING_SCORE = 7;
+const WINNING_SCORE = 1;
 
 function runProgram(){
   updateScore();
@@ -60,7 +60,10 @@ function CreateItem(id, speedX, speedY){
 var scoreBoard = CreateItem("#scoreBoard",0,0);
 var paddleLeft =  CreateItem("#paddleLeft", 0, 0);
 var paddleRight =  CreateItem("#paddleRight", 0, 0);
-var ball = CreateItem("#ball", (Math.random() > 0.5 ? -3 : 3), (Math.random() > 0.5 ? -3 : 3))
+
+var ball = CreateItem("#ball", (Math.random() > 0.5 ? -3 : 3), (Math.random() > 0.5 ? -3 : 3));
+  ball.x = BOARD_WIDTH / 2 - BALL_WIDTH / 2; // Set ball starting position to center
+  ball.y = BOARD_HEIGHT / 2 - BALL_WIDTH / 2;
 
   // one-time setup
   
@@ -212,15 +215,14 @@ function gameReset (obj){
     return;
   }
 
-if(scoreLeft < WINNING_SCORE && scoreRight < WINNING_SCORE) {
-   obj.x = BOARD_WIDTH / 2 - BALL_WIDTH / 2;
-   obj.y = BOARD_HEIGHT /2 - BALL_WIDTH / 2;
+  if(scoreLeft < WINNING_SCORE && scoreRight < WINNING_SCORE) {
+    obj.x = BOARD_WIDTH / 2 - BALL_WIDTH / 2 ; 
+    obj.y = BOARD_HEIGHT / 2 - BALL_WIDTH / 2 ; 
 
-   obj.speedX = (Math.random() > 0.5 ? -3 : 3) * (Math.random() * 0.5 + 1);
-   obj.speedY = (Math.random() > 0.5 ? -3 : 3) * (Math.random() * 0.5 + 1);
+    obj.speedX = (Math.random() > 0.5 ? -3 : 3) * (Math.random() * 0.5 + 1);
+    obj.speedY = (Math.random() > 0.5 ? -3 : 3) * (Math.random() * 0.5 + 1);
   }
- }
-
+}
 //function to end the game
 
   function endGame(winnerText) {
@@ -230,17 +232,12 @@ if(scoreLeft < WINNING_SCORE && scoreRight < WINNING_SCORE) {
     // turn off event handlers
     $(document).off();
   
-    $("#scoreBoard").html(`<h2>${winnerText}</h2>`);
-    $("<button>")
-    .text("Play Again")
-    .attr("id", "playAgainBtn")
-    .css({
-      "font-size": "20px",
-      "padding": "10px 20px",
-      "margin-top": "10px",
-      "cursor": "pointer"
-    })
-    .appendTo("#scoreboard")
-    .click(() => location.reload());
-}
+    $("#winnerText").text(winnerText);
+    $("#winnerBox").css("display", "block");
+
+    // Play Again button action
+    $("#playAgainBtn").click(function() {
+      location.reload(); 
+    });
+  }
 }

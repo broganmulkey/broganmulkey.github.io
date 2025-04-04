@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PONG</title>
     <!-- Load CSS files -->
     <link rel="stylesheet" type="text/css" href="index.css">
@@ -17,13 +19,21 @@
         <div class="paddle" id="paddleRight"></div>
         <div id="ball"></div>
       </div>
-      <div id='scoreboard'>
+      <div id="scoreboard">
         <div class="player-score">
           <span class="player-label">Player One:</span> <span id="scoreLeft">0</span>
         </div>
         <div class="player-score">
           <span class="player-label">Player Two:</span> <span id="scoreRight">0</span>
         </div>
+      </div>
+    </div>
+
+    <div id="winnerBox" class="winBox">
+      <div class="winBox-content">
+        <h2 id="winnerText">Player 1 won the game!</h2>
+        <img id="winAnimation" src="img/winAnimation.gif" alt="Win Animation">
+        <button id="playAgainBtn">Play Again</button>
       </div>
     </div>
   </body>
